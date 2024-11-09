@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Learning Management System</h1>
+            <p>Empowering Education with Technology</p>
+        </header>
+        <nav class="menu">
+            <button onclick="showAdminMenu()"><i class="fas fa-user-shield"></i> Admin Login</button>
+            <button onclick="showInstructorMenu()"><i class="fas fa-chalkboard-teacher"></i> Instructor Login</button>
+            <button onclick="showStudentMenu()"><i class="fas fa-user-graduate"></i> Student Login</button>
+        </nav>
+
+        <main>
+            <section id="adminMenu" class="menu-section">
+                <h2>Admin Dashboard</h2>
+                <div class="menu-items">
+                    <button onclick="manageUsers()"><i class="fas fa-users-cog"></i> Manage Users</button>
+                    <button onclick="manageCourses()"><i class="fas fa-book"></i> Manage Courses</button>
+                    <button onclick="viewPerformanceAnalytics()"><i class="fas fa-chart-line"></i> Performance Analytics</button>
+                    <button onclick="manageSystemSettings()"><i class="fas fa-cogs"></i> System Settings</button>
+                    <button onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+                </div>
+            </section>
+
+            <section id="instructorMenu" class="menu-section">
+                <h2>Instructor Dashboard</h2>
+                <div class="menu-items">
+                    <button onclick="createCourse()"><i class="fas fa-plus-circle"></i> Create Course</button>
+                    <button onclick="gradeAssignments()"><i class="fas fa-pen"></i> Grade Assignments</button>
+                    <button onclick="monitorStudents()"><i class="fas fa-user-check"></i> Monitor Students</button>
+                    <button onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+                </div>
+            </section>
+
+            <section id="studentMenu" class="menu-section">
+                <h2>Student Dashboard</h2>
+                <div class="menu-items">
+                    <button onclick="enrollInCourse()"><i class="fas fa-sign-in-alt"></i> Enroll in Course</button>
+                    <button onclick="accessMaterials()"><i class="fas fa-book-reader"></i> Access Materials</button>
+                    <button onclick="submitAssignment()"><i class="fas fa-upload"></i> Submit Assignment</button>
+                    <button onclick="trackProgress()"><i class="fas fa-tasks"></i> Track Progress</button>
+                    <button onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

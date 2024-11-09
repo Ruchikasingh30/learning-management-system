@@ -1,0 +1,198 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// User Class
+class User {
+    String name, email, role; 
+    User(String name, String email, String role) {
+        this.name = name;
+        this.email = email;
+        this.role = role;
+    }
+}
+// Admin Class
+class Admin extends User {
+    Admin(String name, String email) {
+        super(name, email, "Admin");
+    }
+    void manageUsers() {
+        System.out.println("Enter user details for creation/updating:");
+        System.out.println("User created/updated successfully!");
+        System.out.println("User account management complete.");
+    }
+    void manageCourses() {
+        System.out.println("Enter course details (title, description, syllabus):");
+        System.out.println("Course created/updated/deleted successfully!");
+    }
+    void viewPerformanceAnalytics() {
+        System.out.println("Generating performance reports and visualizations...");
+        System.out.println("Reports and visualizations displayed.");
+    }
+    void manageSystemSettings() {
+        System.out.println("Enter configuration settings:");
+        System.out.println("Settings updated successfully!");
+    }
+}
+// Instructor Class
+class Instructor extends User {
+    Instructor(String name, String email) {
+        super(name, email, "Instructor");
+    }
+    void createCourse() {
+        System.out.println("Enter course content, quizzes, assignments:");
+        System.out.println("Course created successfully!");
+    }
+    void gradeAssignments() {
+        System.out.println("Grading student submissions...");
+        System.out.println("Grades and feedback provided.");
+    }
+    void monitorStudents() {
+        System.out.println("Displaying student performance reports...");
+        System.out.println("Student performance reports displayed.");
+    }
+}
+
+// Student Class
+class Student extends User {
+    Student(String name, String email) {
+        super(name, email, "Student");
+    }
+    void enrollInCourse() {
+        System.out.println("Selecting course for enrollment...");
+        System.out.println("Enrolled in course successfully!");
+    }
+    void accessMaterials() {
+        System.out.println("Accessing course materials...");
+        System.out.println("Materials accessed successfully!");
+    }
+    void submitAssignment() {
+        System.out.println("Submitting assignment...");
+        System.out.println("Assignment submitted successfully!");
+    }
+    void trackProgress() {
+        System.out.println("Tracking course progress...");
+        System.out.println("Progress report displayed.");
+    }
+}
+
+public class LMS1 {
+    static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Online Learning Management System!");
+        mainMenu();
+    }
+    static void mainMenu() {
+        while (true) {
+            System.out.println("\nMain Menu:");
+            System.out.println("1. Admin Login");
+            System.out.println("2. Instructor Login");
+            System.out.println("3. Student Login");
+            System.out.println("4. Exit");
+            System.out.print("Select an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); 
+            switch (choice) {
+                case 1:
+                    adminMenu();
+                    break;
+                case 2:
+                    instructorMenu();
+                    break;
+                case 3:
+                    studentMenu();
+                    break;
+                case 4:
+                    System.out.println("Exiting... Goodbye!");
+                    return;
+                default:
+                    System.out.println("Invalid option. try again.");
+            }
+        }
+    }
+    static void adminMenu() {
+        Admin admin = new Admin("Admin Name", "admin@gmail.com");
+        System.out.println("\nAdmin Menu:");
+        System.out.println("1. Manage Users");
+        System.out.println("2. Manage Courses");
+        System.out.println("3. View Performance Analytics");
+        System.out.println("4. Manage System Settings");
+        System.out.println("5. Back to Main Menu");
+        System.out.print("Select an option: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                admin.manageUsers();
+                break;
+            case 2:
+                admin.manageCourses();
+                break;
+            case 3:
+                admin.viewPerformanceAnalytics();
+                break;
+            case 4:
+                admin.manageSystemSettings();
+                break;
+            case 5:
+                return;
+            default:
+                System.out.println("Invalid option. Please try again.");
+        }
+    }
+    static void instructorMenu() {
+        Instructor instructor = new Instructor("Instructor Name", "instructor@example.com");
+        System.out.println("\nInstructor Menu:");
+        System.out.println("1. Create Course");
+        System.out.println("2. Grade Assignments");
+        System.out.println("3. Monitor Students");
+        System.out.println("4. Back to Main Menu");
+        System.out.print("Select an option: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); 
+        switch (choice) {
+            case 1:
+                instructor.createCourse();
+                break;
+            case 2:
+                instructor.gradeAssignments();
+                break;
+            case 3:
+                instructor.monitorStudents();
+                break;
+            case 4:
+                return;
+            default:
+                System.out.println("Invalid option. Please try again.");
+        }
+    }
+    static void studentMenu() {
+        Student student = new Student("Student Name", "student@gmail.com");
+        System.out.println("\nStudent Menu:");
+        System.out.println("1. Enroll in Course");
+        System.out.println("2. Access Materials");
+        System.out.println("3. Submit Assignment");
+        System.out.println("4. Track Progress");
+        System.out.println("5. Back to Main Menu");
+        System.out.print("Select an option: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); 
+        switch (choice) {
+            case 1:
+                student.enrollInCourse();
+                break;
+            case 2:
+                student.accessMaterials();
+                break;
+            case 3:
+                student.submitAssignment();
+                break;
+            case 4:
+                student.trackProgress();
+                break;
+            case 5:
+                return;
+            default:
+                System.out.println("Invalid option. Please try again.");
+        }
+    }
+}
